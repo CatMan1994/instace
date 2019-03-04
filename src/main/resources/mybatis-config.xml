@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--让数据库表字段和实体类的映射关系_变驼峰，如表字段nick_name对应实体类nickName-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <mappers>
+        <!-- 告知映射文件方式1，一个一个的配置-->
+        <mapper resource="mappers/UserMapper.xml"/>
+        <mapper resource="mappers/FileMapper.xml"/>
+        <mapper resource="mappers/InstanceRingMapper.xml"/>
+        <mapper resource="mappers/LikesMapper.xml"/>
+        <mapper resource="mappers/CommentsMapper.xml"/>
+        <!-- 告知映射文件方式2，自动扫描包内的Mapper接口与配置文件-->
+        <!--<package name="mappers"/>-->
+    </mappers>
+
+</configuration>

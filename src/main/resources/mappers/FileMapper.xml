@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper文件里的信息都是与dao一一对应的，例如resultType是User，id是getUser，#{id}证明传参是id，parameterType是String证明参数类型是string，那dao里的方法就是User getUser(String id) -->
+<!-- namespace写dao的具体路径 -->
+<mapper namespace="com.bc.dao.FileDao">
+    <select id="getFile" parameterType="string" resultType="com.bc.entity.File">
+        select * from file where id=#{id}
+    </select>
+
+    <select id="getFilesByInstanceId" parameterType="string" resultType="com.bc.entity.File">
+        select * from file where instance_id=#{instanceId}
+    </select>
+
+    <insert id="addFile" parameterType="com.bc.entity.File">
+        INSERT INTO file (
+        id,
+        src,
+        size,
+        name,
+        create_time
+        ) VALUES (
+        #{id,jdbcType=VARCHAR},
+        #{src,jdbcType=VARCHAR},
+        #{size,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR},
+        #{createTime,jdbcType=VARCHAR}
+        )
+    </insert>
+
+</mapper>

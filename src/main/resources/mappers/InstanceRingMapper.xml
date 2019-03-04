@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper文件里的信息都是与dao一一对应的，例如resultType是User，id是getUser，#{id}证明传参是id，parameterType是String证明参数类型是string，那dao里的方法就是User getUser(String id) -->
+<!-- namespace写dao的具体路径 -->
+<mapper namespace="com.bc.dao.InstanceRingDao">
+    <!-- id写dao的方法名；   parameterType写方法参数的类型；   resultType写返回的数据类型(有时要具体到包名，有时不用，暂时先全部具体到包名)-->
+    <select id="list" parameterType="string" resultType="com.bc.entity.InstanceMain">
+        select * from instance_main
+    </select>
+
+    <insert id="add" parameterType="com.bc.entity.InstanceMain">
+        INSERT INTO instance_main (
+        id,
+        content,
+        user_id
+        ) VALUES (
+        #{id},
+        #{content},
+        #{userId}
+        )
+    </insert>
+</mapper>
